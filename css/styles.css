@@ -465,6 +465,7 @@ button {
   line-height: 1.05;
   letter-spacing: -0.01em;
   text-shadow: 0 2px 40px rgba(201, 168, 76, 0.25);
+  word-break: break-word;
 }
 
 /* First letter accent */
@@ -1384,4 +1385,166 @@ a.contact-card:hover .contact-card__icon {
   .footer__nav { justify-content: center; gap: 0; }
   .footer__nav a { padding: 0.5rem 0.6rem; }
   .footer__social { justify-content: center; }
+}
+
+/* ─── Contact Form ───────────────────────────────────────── */
+.contact__form {
+  max-width: 600px;
+  margin: 2.5rem auto 3rem;
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top accent bar */
+.contact__form::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--accent-gradient);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+/* Form heading */
+.contact__form-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.contact__form-heading svg {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.contact__form-heading h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form__group label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Input wrapper for icon support */
+.form__input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form__input-wrap svg {
+  position: absolute;
+  left: 0.9rem;
+  width: 17px;
+  height: 17px;
+  color: var(--gray-mid);
+  pointer-events: none;
+  flex-shrink: 0;
+  transition: color var(--transition);
+}
+
+.form__group input,
+.form__group textarea {
+  width: 100%;
+  padding: 0.8125rem 1rem;
+  border: 1.5px solid rgba(201, 168, 76, 0.25);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-family: inherit;
+  color: var(--dark);
+  background: var(--surface-alt);
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+/* Padding extra cuando hay ícono a la izquierda — debe ir después de la regla base */
+.form__input-wrap input,
+.form__input-wrap textarea {
+  padding-left: 2.75rem;
+}
+
+.form__group input::placeholder,
+.form__group textarea::placeholder {
+  color: var(--gray-mid);
+  font-size: 0.9rem;
+}
+
+.form__group input:hover,
+.form__group textarea:hover {
+  border-color: rgba(201, 168, 76, 0.5);
+}
+
+.form__group input:focus,
+.form__group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--surface-card);
+  box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.12);
+}
+
+/* Change icon color on focus */
+.form__input-wrap:focus-within svg {
+  color: var(--accent);
+}
+
+.form__group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact__form .btn--submit {
+  background: var(--primary);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  justify-content: center;
+  gap: 0.625rem;
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-navy);
+  transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.contact__form .btn--submit:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 8px 28px rgba(26, 58, 92, 0.35);
+  transform: translateY(-2px);
+}
+
+.contact__form .btn--submit svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 640px) {
+  .contact__form {
+    padding: 1.75rem 1.25rem;
+    border-radius: var(--radius-lg);
+    margin-top: 1.5rem;
+  }
 }
