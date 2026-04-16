@@ -6,26 +6,26 @@
 :root {
   --font-heading:    'Playfair Display', Georgia, serif;
   --font:            'Inter', system-ui, sans-serif;
-  --primary:         #1A3A5C;
-  --primary-hover:   #122D47;
-  --primary-light:   rgba(26, 58, 92, 0.08);
-  --accent:          #C9A84C;
-  --accent-hover:    #B8943F;
-  --accent-light:    rgba(201, 168, 76, 0.15);
-  --accent-gradient: linear-gradient(135deg, #C9A84C, #E8C97A);
+  --primary:         #0C2C55;
+  --primary-hover:   #091E3A;
+  --primary-light:   rgba(12, 44, 85, 0.08);
+  --accent:          #296374;
+  --accent-hover:    #1E4D5C;
+  --accent-light:    rgba(41, 99, 116, 0.15);
+  --accent-gradient: linear-gradient(135deg, #296374, #629FAD);
   --surface:         #FFFFFF;
-  --surface-alt:     #F8F7F5;
+  --surface-alt:     #EDEDCE;
   --surface-card:    #FFFFFF;
-  --dark:            #0F1A2A;
-  --gray:            #5A6475;
-  --gray-mid:        #9CA3AF;
+  --dark:            #0C2C55;
+  --gray:            #4A5E72;
+  --gray-mid:        #8FA3B1;
   --white:           #ffffff;
-  --border:          rgba(201, 168, 76, 0.2);
-  --shadow-sm:       0 2px 8px rgba(15, 26, 42, 0.06);
-  --shadow-md:       0 8px 28px rgba(15, 26, 42, 0.12);
-  --shadow-lg:       0 16px 48px rgba(15, 26, 42, 0.18);
-  --shadow-navy:     0 8px 32px rgba(26, 58, 92, 0.22);
-  --shadow-gold:     0 8px 28px rgba(201, 168, 76, 0.40);
+  --border:          rgba(41, 99, 116, 0.22);
+  --shadow-sm:       0 2px 8px rgba(12, 44, 85, 0.07);
+  --shadow-md:       0 8px 28px rgba(12, 44, 85, 0.13);
+  --shadow-lg:       0 16px 48px rgba(12, 44, 85, 0.20);
+  --shadow-navy:     0 8px 32px rgba(12, 44, 85, 0.25);
+  --shadow-gold:     0 8px 28px rgba(41, 99, 116, 0.38);
   --radius-sm:       6px;
   --radius-md:       12px;
   --radius-lg:       20px;
@@ -371,7 +371,7 @@ button {
    HERO
    ════════════════════════════════════════════════════════════ */
 .hero {
-  background: linear-gradient(160deg, #0A1628 0%, #1A3A5C 45%, #0D2238 75%, #1A2E1A 100%);
+  background: linear-gradient(160deg, #060F1E 0%, #0C2C55 45%, #0A1E3A 75%, #132030 100%);
   padding-top: var(--navbar-h);
   overflow: hidden;
   position: relative;
@@ -469,7 +469,7 @@ button {
 }
 
 /* First letter accent */
-.hero__title::first-letter { color: var(--accent); }
+.hero__title::first-letter { color: var(--white); }
 
 .hero__slogan {
   font-size: clamp(1.25rem, 2.2vw, 1.65rem);
@@ -548,7 +548,7 @@ button {
 
 .service-card {
   background: var(--surface-card);
-  border: 1px solid rgba(229, 224, 216, 0.8);
+  border: 1px solid rgba(98, 159, 173, 0.25);
   border-radius: var(--radius-lg);
   padding: 1.75rem 1.5rem;
   box-shadow: 0 4px 16px rgba(15, 26, 42, 0.06);
@@ -660,8 +660,8 @@ button {
 }
 
 .about__value:hover {
-  border-left-color: #E8C97A;
-  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.15);
+  border-left-color: #629FAD;
+  box-shadow: 0 4px 16px rgba(41, 99, 116, 0.18);
 }
 
 .about__value svg {
@@ -706,7 +706,7 @@ button {
   position: absolute;
   inset: -8px;
   border-radius: 50%;
-  background: conic-gradient(var(--accent), #E8C97A 25%, transparent 50%, #C9A84C 75%, var(--accent));
+  background: conic-gradient(var(--accent), #629FAD 25%, transparent 50%, #296374 75%, var(--accent));
   animation: seal-rotate 20s linear infinite;
   opacity: 0.55;
 }
@@ -1082,7 +1082,7 @@ a.contact-card:hover .contact-card__icon {
    FOOTER
    ════════════════════════════════════════════════════════════ */
 .footer {
-  background-color: #0D1F35;
+  background-color: #07172A;
   color: rgba(255, 255, 255, 0.55);
   padding-top: 2.5rem;
   padding-bottom: 1.25rem;
@@ -1220,8 +1220,8 @@ a.contact-card:hover .contact-card__icon {
 }
 
 @keyframes wpp-pulse {
-  0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0.30); }
-  50%       { box-shadow: 0 6px 24px rgba(37,211,102,0.55), 0 0 0 14px rgba(37,211,102,0); }
+  0%, 100% { box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.30); }
+  50%       { box-shadow: 0 6px 24px rgba(37, 211, 102, 0.55), 0 0 0 14px rgba(37, 211, 102, 0); }
 }
 
 .float-wpp:hover {
@@ -1502,7 +1502,7 @@ a.contact-card:hover .contact-card__icon {
   outline: none;
   border-color: var(--accent);
   background: var(--surface-card);
-  box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.12);
+  box-shadow: 0 0 0 4px rgba(41, 99, 116, 0.14);
 }
 
 /* Change icon color on focus */
