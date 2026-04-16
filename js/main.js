@@ -286,4 +286,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
   animatedEls.forEach(el => revealObserver.observe(el));
 
+  // ──────────────────────────────────────────────────────────
+  // 7. SUCCESS MODAL — se muestra cuando Netlify redirige con ?enviado=1
+  // ──────────────────────────────────────────────────────────
+  const successOverlay = document.getElementById('successOverlay');
+  const successClose   = document.getElementById('successClose');
+
+  function showSuccessModal() {
+    successOverlay.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+    // Pequeño delay para que la transición CSS se active
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        successOverlay.classList.add('visible');
+      });
+    });
+  }
+
+  function hideSuccessModal() {
+    successOverlay.classList.remove('visible');
+    document.body.style.overflow = '';
+    successOverlay.addEventListener('transitionend', () => {
+      successOverlay.setAttribute('hidden', '');
+      // Limpiar el parámetro de la URL sin recargar
+      const url = new URL(window.location);
+      url.searchParams.delete('enviado');
+      window.history.replaceState({}, '', url);
+    }, { once: true });
+  }
+
+  if (new URLSearchParams(window.location.search).get('enviado') === '1') {
+    showSuccessModal();
+  }
+
+  successClose.addEventListener('click', hideSuccessModal);
+
+  // Cerrar al hacer clic fuera del modal
+  successOverlay.addEventListener('click', (e) => {
+    if (e.target === successOverlay) hideSuccessModal();
+  });
+
+  // Cerrar con Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !successOverlay.hasAttribute('hidden')) {
+      hideSuccessModal();
+    }
+  });
+
 });

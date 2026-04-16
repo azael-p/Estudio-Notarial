@@ -1548,3 +1548,136 @@ a.contact-card:hover .contact-card__icon {
     margin-top: 1.5rem;
   }
 }
+
+/* ════════════════════════════════════════════════════════════
+   SUCCESS MODAL
+   ════════════════════════════════════════════════════════════ */
+.success-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(12, 44, 85, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.success-overlay.visible {
+  opacity: 1;
+}
+
+.success-overlay[hidden] {
+  display: none;
+}
+
+.success-modal {
+  background: var(--surface-card);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2.5rem 2.5rem;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: 0 24px 64px rgba(12, 44, 85, 0.28);
+  border-top: 4px solid #629FAD;
+  transform: translateY(32px) scale(0.96);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.35s ease;
+  opacity: 0;
+}
+
+.success-overlay.visible .success-modal {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Icono animado */
+.success-modal__icon-wrap {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #EDEDCE;
+  border-radius: 50%;
+}
+
+.success-modal__circle-bg {
+  position: absolute;
+  inset: -6px;
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+}
+
+.success-modal__ring {
+  animation: ring-draw 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+}
+
+@keyframes ring-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+.success-modal__check {
+  width: 52px;
+  height: 52px;
+  position: relative;
+  z-index: 1;
+}
+
+.success-modal__check polyline {
+  animation: check-draw 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.75s forwards;
+}
+
+@keyframes check-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+.success-modal__title {
+  font-family: var(--font-heading);
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.success-modal__text {
+  font-size: 1rem;
+  color: var(--gray);
+  line-height: 1.65;
+  max-width: 300px;
+}
+
+.success-modal__btn {
+  margin-top: 0.5rem;
+  background: var(--accent-gradient);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.875rem 2.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: var(--font);
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(41, 99, 116, 0.32);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.success-modal__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(41, 99, 116, 0.42);
+}
+
+@media (max-width: 640px) {
+  .success-modal {
+    padding: 2.25rem 1.5rem 2rem;
+  }
+}
