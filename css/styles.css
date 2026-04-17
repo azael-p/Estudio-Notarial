@@ -625,12 +625,7 @@ button {
 
 /* Decorative vertical line */
 .about__deco-line {
-  display: block;
-  width: 3px;
-  height: 60px;
-  background: var(--accent-gradient);
-  border-radius: 2px;
-  margin-bottom: 1rem;
+  display: none;
 }
 
 .about__text p {
@@ -950,6 +945,33 @@ button {
   margin-bottom: 2rem;
 }
 
+.contact__escribanas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.contact__escribana-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact__escribana-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+  padding-bottom: 0.625rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+.contact__escribana-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.875rem;
+}
+
 .contact-card {
   display: flex;
   flex-direction: column;
@@ -1033,37 +1055,44 @@ a.contact-card:hover .contact-card__icon {
 
 .contact__schedule {
   display: flex;
-  gap: 0.75rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  overflow: hidden;
 }
 
 .contact__schedule-item {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.25rem;
-  padding: 0.875rem 1.25rem;
-  background: var(--white);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  min-width: 110px;
+  padding: 0.8rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  transition: background 0.15s;
+}
+
+.contact__schedule-item:last-child { border-bottom: none; }
+
+.contact__schedule-item:not(.contact__schedule-item--closed) {
+  border-left-color: var(--accent);
 }
 
 .contact__day {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--primary);
 }
 
 .contact__time {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--accent);
   font-weight: 600;
-  text-align: center;
-  line-height: 1.4;
 }
 
+.contact__schedule-item--closed { border-left-color: transparent; }
 .contact__schedule-item--closed .contact__day  { color: var(--gray-mid); font-weight: 400; }
 .contact__schedule-item--closed .contact__time { color: var(--gray-mid); font-weight: 400; }
 
@@ -1285,6 +1314,8 @@ a.contact-card:hover .contact-card__icon {
   .about__seal { width: 140px; height: 140px; }
   .about__photo-badge { width: auto; align-self: center; }
   .contact__actions { grid-template-columns: repeat(3, 1fr); }
+  .contact__escribanas { grid-template-columns: 1fr; }
+  .contact__escribana-cards { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -1374,9 +1405,9 @@ a.contact-card:hover .contact-card__icon {
 
   /* Contact mobile */
   .contact__actions { grid-template-columns: repeat(2, 1fr); }
+  .contact__escribanas { grid-template-columns: 1fr; }
+  .contact__escribana-cards { grid-template-columns: 1fr; }
   .contact__hours-title { justify-content: center; width: 100%; }
-  .contact__schedule { gap: 0.5rem; }
-  .contact__schedule-item { min-width: 90px; padding: 0.75rem 0.75rem; }
   .contact__map-row { height: 280px; }
 
   /* Footer */
