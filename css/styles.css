@@ -448,18 +448,18 @@ button {
   gap: 0.5rem;
   background: var(--accent-gradient);
   color: var(--white);
-  font-size: 0.68rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 0.4rem 1.25rem;
+  padding: 0.55rem 1.5rem;
   border-radius: 100px;
 }
-.hero__badge svg { width: 13px; height: 13px; flex-shrink: 0; }
+.hero__badge svg { width: 16px; height: 16px; flex-shrink: 0; }
 
 .hero__title {
   font-family: var(--font-heading);
-  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
   font-weight: 700;
   color: var(--white);
   line-height: 1.05;
@@ -488,10 +488,12 @@ button {
 }
 
 .hero__desc {
-  font-size: 1.0625rem;
-  color: rgba(255, 255, 255, 0.90);
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 1);
   line-height: 1.7;
   max-width: 560px;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
 }
 
 .hero__actions {
